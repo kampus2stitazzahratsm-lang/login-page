@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin</title>
+  <style>
+    body {
+      background: linear-gradient(135deg,#98fb98,#32cd32);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #loginContainer {
+      background: #fff;
+      padding: 40px;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    #loginContainer input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    #loginContainer input:focus {
+      border-color: #1b5e20;
+      box-shadow: 0 0 5px rgba(27,94,32,0.5);
+      outline: none;
+    }
+    #loginContainer button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #btnLogin { background: #1b5e20; color: #fff; margin-top: 10px; }
+    #btnLogin:hover { background: #145214; }
+    #btnBack { background: #0000FF; color: #fff; margin-bottom: 20px; }
+    #btnBack:hover { background: #0033cc; }
+    #error { color: red; margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div id="loginContainer">
+    <button id="btnBack" onclick="window.location.href='https://sikaztas.blogspot.com/p/k2.html'">
+      Kembali
+    </button>
+    <h2>Login Admin</h2>
+    <p>Sistem Informasi Kampus 2<br>STIT Az Zahra Tasikmalaya</p>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id="btnLogin" onclick="loginAdmin()">Login</button>
+    <p id="error"></p>
+  </div>
+  <script>
+    function loginAdmin() {
+      var user = document.getElementById("username").value;
+      var pass = document.getElementById("password").value;
+      if(user === "admin" && pass === "123456") {
+        sessionStorage.setItem("adminLogin","true");
+        window.location.href = "https://sikaztas.blogspot.com/p/homepage.html";
+      } else {
+        document.getElementById("error").innerHTML = "Username atau Password salah!";
+      }
+    }
+  </script>
+</body>
+</html>
